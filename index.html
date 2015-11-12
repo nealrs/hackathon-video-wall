@@ -1,0 +1,54 @@
+<html>
+<head>
+  <title>Hackathon video wall</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/wall.css" />
+
+  <script src="https://cdn.firebase.com/js/client/2.3.1/firebase.js"></script>
+  <link rel="stylesheet" href="//assets-cdn.ziggeo.com/css/ziggeo-v1.css" />
+  <script src="//assets-cdn.ziggeo.com/js/ziggeo-v1.js"></script>
+  <script src="js/config.js"></script>
+
+  <script src ="js/ICanHaz.min.js"></script>
+  <script id="vid" type="text/html">
+    <div class="tile">
+      <ziggeo ziggeo-width=350 ziggeo-height=263 ziggeo-video="{{video}}"></ziggeo>
+      <p>{{name}} <a href="http://devpost.com/{{username}}">({{username}})</a> &middot; {{location}}</p>
+    </div>
+  </script>
+
+  <script>
+    //var fb = new Firebase("https://"+fbSlug+".firebaseio.com/");
+	var fb = new Firebase("https://hackathon-video-wall.firebaseio.com/");
+    var data;
+
+    $(document).ready(function () {
+      fb.child(fbCollection).on("value", function(snapshot) {
+        data = snapshot.val();
+        console.log(data);
+        for (var k in data) {
+          if (data.hasOwnProperty(k)) {
+            var d = data[k];
+            console.log(d["name"] +", "+ d["username"] +", "+ d["location"] +", "+ d["video"]);
+            vid = ich.vid(d); $('#vidlist').append(vid);
+          }
+        }
+      });
+    });
+  </script>
+</head>
+
+<body>
+
+  <div id="addButton"><a class="button" href="upload.html">Add your video</a></div>
+
+  <div id="vidlist" class="tileBox">
+  </div>
+
+  <div>
+  	<hr>
+  	<a href="http://devpost.com"><img src="http://devpost0.assetspost.com/assets/shared/devpost_logo-646bdf6ac6663230947a952f8d354cad.svg" style="height: 30px;"></a>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,69 @@
+<html>
+<head>
+  <title>Record an intro video | Hackathon video wall</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/main.css">
+  <script src="https://cdn.firebase.com/js/client/2.3.1/firebase.js"></script>
+
+  <link rel="stylesheet" href="//assets-cdn.ziggeo.com/css/ziggeo-v1.css" />
+  <script src="//assets-cdn.ziggeo.com/js/ziggeo-v1.js"></script>
+  <script src="js/config.js"></script>
+  
+  <script>
+    ZiggeoApi.Events.on("submitted", function (data) {
+      console.log('Video ID ' + data.video.token + ' was uploaded and is currently being processed.');
+      document.getElementById("video").value = data.video.token;
+      document.getElementById('addsuccess').style.display="block";
+    });
+
+    $(window).resize(function(){
+      var z = document.getElementsByClassName('video-recorder-outer')[0];
+      var o = document.getElementById("video-recorder-view-cid_1");
+        z.style.height = document.getElementById("widget").offsetWidth/1.5;
+        z.style.width = document.getElementById("widget").offsetWidth;
+        o.style.height = document.getElementById("widget").offsetWidth/1.5;
+        o.style.width = document.getElementById("widget").offsetWidth;
+    });
+
+  </script>
+</head>
+<body>
+
+<!--<div>
+<h2>Introduce yourself &amp; find a teammate</h2>
+</div>-->
+
+<div>
+
+  <form id = "form" class="pure-form pure-form-stacked">
+
+    <label for="name">What's your name?</label><br>
+    <input class="pure-input" name = "name" id="name" placeholder="Jon Show" required type="text">
+
+    <label for="username">What's your Devpost username?</label>
+    <!--<a target="_blank" href="https://secure.devpost.com/users/register">[Sign up here]</a>--><br>
+    <input type="text" class="pure-input" name = "username" id="username" placeholder="jonSn0" required>
+
+    <label for="location">Where are you located?</label><br>
+    <input type="text" class="pure-input" name="location" id="location" placeholder="The Wall" required>
+
+    <p>Record a short video about yourself, your skills, and what you're looking for in a teammate:</p>
+
+    <ziggeo ziggeo-width=400 ziggeo-height=300 ziggeo-limit=180>
+    </ziggeo>
+    <input type="hidden" id = "video" name="video">
+    <p id="addsuccess" style="cursor:text; color:#77ad39; display:none;">Video processing complete!</p>
+
+    <br>
+
+    <a id="upload" onclick="store()"class="button ">Upload video</button>
+  </form>
+
+    <a href="index.html" id="wall" class="button" style="display:none;">Return to video wall</button>
+</div>
+
+<!--<div>
+	<a href="http://devpost.com"><img src="http://devpost0.assetspost.com/assets/shared/devpost_logo-646bdf6ac6663230947a952f8d354cad.svg" style="height: 30px;"></a>
+</div>-->
+
+</body>

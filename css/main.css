@@ -1,0 +1,167 @@
+/*layout from: http://codepen.io/joerlo/pen/vDozB*/
+
+body {
+  color:#111111;
+  font-family: 'ClearSans', 'HelveticaNeue-Bold', 'Helvetica Neue Bold', sans-serif;
+  max-width: 600px;
+  margin: 20px auto;
+}
+.l-box {
+    padding-left: 1em;
+    padding-right: 1em;
+}
+a {
+  color: #2d9eb2;
+  text-decoration:none;
+}
+
+a.imga {border:none;}
+
+label {
+  font-weight:bold;
+}
+
+#widget{
+  /*width: 75%;
+  margin: 0 auto;
+  text-align:left;*/
+}
+
+#radios label {
+  text-align: center;
+  padding: 0 0.5em;
+  margin: 0;
+}
+
+#radios img {max-width:100%; }
+
+/* http://stackoverflow.com/questions/17541614/use-thumbnail-image-instead-of-radio-button */
+#radios label > input{ /* HIDE RADIO */
+  display:none;
+}
+#radios label > input + img{ /* IMAGE STYLES */
+  cursor:pointer;
+  border:3px solid transparent;
+  padding:.5em;
+  opacity:.5;
+}
+#radios label > input:checked + img{ /* (RADIO CHECKED) IMAGE STYLES */
+  border:3px dotted #0078e7;
+  opacity:1;
+  border-radius:12px;
+}
+
+.bene {
+  font-weight:bold;
+}
+
+.header {
+  background-image: url('header.jpg');
+  background-size: cover;
+  background-position: 50% 50%;
+  color:#FFF;
+  text-align:center;
+  padding:2em;
+}
+
+.header h1, .header h2{
+  margin:0;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, .5);
+}
+
+.headrow{
+  background:#f0efed;
+  color:#111111;
+  padding: 2em 1em 1em;
+  margin-bottom:1em;
+}
+
+.footrow{
+  background:#f0efed;
+  color:#111111;
+  padding: 2em 1em 1em;
+}
+
+p {
+  margin-top:0;
+}
+
+.headrow p {margin-bottom:0;}
+
+.bene-icon{
+  float:left;
+  margin-right:8px;
+  color: #A1A09A;
+}
+
+.pure-u-sm-bene-pad {
+  margin-bottom:1em;
+}
+
+.shadow {
+  -moz-box-shadow:    3px 3px 5px 6px #ccc;
+  -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+  box-shadow:         3px 3px 5px 6px #ccc;
+}
+
+.button{
+  display: block;
+  background-color: #2d9eb2;
+  border-color: #237a89;
+  color: white;
+  box-shadow: none;
+  border-radius: 2px;
+  transition: all 200ms ease-out;
+  display: inline-block;
+  border-top: style: solid;
+  border-width: 0 0 3px;
+  cursor: pointer;
+  font-family: 'ClearSans', 'HelveticaNeue-Bold', 'Helvetica Neue Bold', sans-serif;
+  font-weight: bold;
+  line-height: normal;
+  margin: 0 0 1.25em;
+  position: relative;
+  text-decoration: none;
+  text-align: center;
+  display: inline-block;
+  padding-top: 0.5625em;
+  padding-right: 1.125em;
+  padding-bottom: 0.625em;
+  padding-left: 1.125em;
+  font-size: 1em;
+}
+
+
+input[type="text"] {
+
+    -webkit-appearance: none;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    background-color: white;
+    font-family: inherit;
+    border: 2px solid #e6e6e6;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    color: rgba(0,0,0,0.75);
+    display: block;
+    font-size: 1em;
+    margin: 1em 0 1em 0;
+    padding: 0.5em;
+    height: 2.4375em;
+    width: 22rem;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transition: all 0.15s linear;
+    -moz-transition: all 0.15s linear;
+    transition: all 0.15s linear;
+
+}
+
+input[type="text"]:hover {
+  border-color: #2d9eb2;
+}
+
+/*input[type="text"]:required {
+  border-color: #801c26;
+}*/
