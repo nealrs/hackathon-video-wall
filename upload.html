@@ -8,30 +8,9 @@
   <link rel="stylesheet" href="//assets-cdn.ziggeo.com/css/ziggeo-v1.css" />
   <script src="//assets-cdn.ziggeo.com/js/ziggeo-v1.js"></script>
   <script src="js/config.js"></script>
-  
-  <script>
-    ZiggeoApi.Events.on("submitted", function (data) {
-      console.log('Video ID ' + data.video.token + ' was uploaded and is currently being processed.');
-      document.getElementById("video").value = data.video.token;
-      document.getElementById('addsuccess').style.display="block";
-    });
 
-    $(window).resize(function(){
-      var z = document.getElementsByClassName('video-recorder-outer')[0];
-      var o = document.getElementById("video-recorder-view-cid_1");
-        z.style.height = document.getElementById("widget").offsetWidth/1.5;
-        z.style.width = document.getElementById("widget").offsetWidth;
-        o.style.height = document.getElementById("widget").offsetWidth/1.5;
-        o.style.width = document.getElementById("widget").offsetWidth;
-    });
-
-  </script>
 </head>
 <body>
-
-<!--<div>
-<h2>Introduce yourself &amp; find a teammate</h2>
-</div>-->
 
 <div>
 
